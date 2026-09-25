@@ -1,5 +1,5 @@
 import css from "./App.module.css";
-import { useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { fetchNotes } from "../../services/noteService";
 import NoteList from "../NoteList/NoteList";
 import { useState } from "react";
@@ -33,6 +33,7 @@ export default function App() {
         perPage: 12,
         search: query,
       }),
+    placeholderData: keepPreviousData,
   });
 
   return (
